@@ -34,7 +34,7 @@ export default function Profile() {
     return(
         <div className="profile-container">
             <header>
-                
+
                 <span>Bem vindo(a), {userName}</span>
 
                 <button onClick={handleLogout} type="button">

@@ -11,6 +11,8 @@ import './styles.css';
 export default function Register() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [cpf, setCpf] = useState('');
+    const [password, setPassword] = useState('');
 
     const history = useHistory();
 
@@ -19,7 +21,9 @@ export default function Register() {
 
         const data = {
             name,
-            email
+            email,
+            cpf,
+            password
         };
 
         try {
@@ -55,6 +59,14 @@ export default function Register() {
                     <input type="email" placeholder=" E-mail"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
+                    />
+                    <input type="number" placeholder="CPF"
+                    value={cpf}
+                    onChange={e => setCpf(e.target.value)}
+                    />
+                    <input type="password" placeholder="Senha SIAC"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
                     />
 
                     <button className="button" type="submit">Cadastrar</button>
