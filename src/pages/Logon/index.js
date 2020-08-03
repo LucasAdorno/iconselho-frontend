@@ -8,13 +8,14 @@ import './styles.css';
 
 export default function Logon(){
     const [id, setId] = useState('');
+    const [password, setPassword] = useState('');
     const history = useHistory();
 
     async function handleLogin(e) {
         e.preventDefault();
 
         try {
-            const response = await api.post('sessions', { id });
+            const response = await api.post('sessions', { id, password });
 
             localStorage.setItem('userId', id);
             localStorage.setItem('userName', response.data.name);
@@ -36,6 +37,11 @@ export default function Logon(){
                     value={id}
                     onChange={e => setId(e.target.value)}
                     />
+                    <input placeholder="Senha"
+                    type='password'
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    />
 
                     <button className="button" type="submit">Entrar</button>
 
@@ -45,7 +51,7 @@ export default function Logon(){
                     </Link>
                 </form>
             </section>
-            
+
         </div>
     );
 }
