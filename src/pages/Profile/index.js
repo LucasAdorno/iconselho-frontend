@@ -17,10 +17,6 @@ export default function Profile() {
     const [cpf, setCpf] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = async () =>{
-        await alert('enviou!')
-    }
-
     useEffect(() => {
         api.get('profile', {
             headers: {
@@ -29,6 +25,24 @@ export default function Profile() {
         }).then(response => {
         })
     }, [userId]);
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        const data = {
+            cpf,
+            password,
+            userId
+        };
+
+        try {
+            const response = await api.post('profile', data);
+
+            localStorage.setItem('dados', response.data);
+        }catch(err){
+            console.error()
+        }
+    }
 
     function handleLogout() {
         localStorage.clear();
