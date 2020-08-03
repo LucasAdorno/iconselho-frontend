@@ -11,7 +11,6 @@ import './styles.css';
 export default function Register() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [cpf, setCpf] = useState('');
     const [password, setPassword] = useState('');
 
     const history = useHistory();
@@ -22,7 +21,6 @@ export default function Register() {
         const data = {
             name,
             email,
-            cpf,
             password
         };
 
@@ -60,11 +58,7 @@ export default function Register() {
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     />
-                    <input type="number" placeholder="CPF"
-                    value={cpf}
-                    onChange={e => setCpf(e.target.value)}
-                    />
-                    <input type="password" placeholder="Senha SIAC"
+                    <input type="password" placeholder="Senha"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                     />
