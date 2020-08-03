@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { FiPower } from 'react-icons/fi';
 
@@ -14,7 +14,12 @@ export default function Profile() {
 
     const userId = localStorage.getItem('userId');
     const userName = localStorage.getItem('userName');
+    const [cpf, setCpf] = useState('');
+    const [password, setPassword] = useState('');
 
+    const handleSubmit = async () =>{
+        await alert('enviou!')
+    }
 
     useEffect(() => {
         api.get('profile', {
@@ -41,8 +46,24 @@ export default function Profile() {
                     <FiPower size={18} color="#E02041"/>
                 </button>
             </header>
+            <section className="form">
 
-            <h1>...</h1>
+                <form onSubmit={handleSubmit}>
+                    <h1>Insira suas informações do SIAC</h1>
+
+                    <input placeholder="CPF"
+                    value={cpf}
+                    onChange={e => setCpf(e.target.value)}
+                    />
+                    <input placeholder="Senha"
+                    type='password'
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    />
+
+                    <button className="button" type="submit">Entrar</button>
+                </form>
+            </section>
         </div>
     );
 }
