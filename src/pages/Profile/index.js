@@ -37,7 +37,7 @@ export default function Profile() {
 
         try {
             const response = await api.post('profile', data);
-
+            
             localStorage.setItem('dados', response.data);
         }catch(err){
             console.error()

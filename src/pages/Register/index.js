@@ -12,6 +12,7 @@ export default function Register() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [bi, setBi] = useState('art');
 
     const history = useHistory();
 
@@ -21,13 +22,13 @@ export default function Register() {
         const data = {
             name,
             email,
-            password
+            password,
+            bi
         };
 
         try {
-            const response = await api.post('users', data);
-
-            alert(`Seu ID de acesso: ${response.data.id}\n Também foi enviado para seu email.`);
+            const response = api.post('users', data);
+            alert(`Seu ID de acesso foi enviado para seu email.`);
 
             history.push('/');
         } catch (err) {
@@ -62,6 +63,12 @@ export default function Register() {
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                     />
+                    <select onChange={e => setBi(e.target.value)}>
+                        <option value='art'> Artes</option>
+                        <option value='cet'> Ciência e tecnologia</option>
+                        <option value='hum'> Humanidades</option>
+                        <option value='sau'> Saúde</option>
+                    </select>
 
                     <button className="button" type="submit">Cadastrar</button>
                 </form>
