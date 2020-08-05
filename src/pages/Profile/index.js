@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { FiPower } from 'react-icons/fi';
 
@@ -11,7 +11,6 @@ import './styles.css';
 export default function Profile() {
 
   const history = useHistory();
-  const formSiac = useRef();
   const userId = localStorage.getItem('userId');
   const userName = localStorage.getItem('userName');
   const [cpf, setCpf] = useState('');
@@ -30,21 +29,18 @@ export default function Profile() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    formSiac.current.innerHTML = '<h1> Aguarde... </h1>'
-
     const data = {
       cpf,
       password,
       userId
     };
 
-    try {
-      const response = await api.post('profile', data);
-      setDados(response.data);
+    await api.post('profile', data).then((res) => {
+      setDados(res.data);
+    }).catch((err) => {
+      alert('deu ruim')
+    });
 
-    } catch (err) {
-      console.error()
-    }
   }
 
   function handleLogout() {
@@ -65,7 +61,7 @@ export default function Profile() {
       </header>
       <section className="form">
 
-        <form onSubmit={handleSubmit} ref={formSiac}>
+        <form onSubmit={handleSubmit}>
           <h1>Insira suas credenciais do SIAC</h1>
 
           <input placeholder="CPF"
@@ -82,7 +78,6 @@ export default function Profile() {
         </form>
       </section>
       <section id='Obrigatórias'>
-        {dados.filterObg ? formSiac.current.innerHTML = ' ' : <></>}
         {dados.filterObg ?
           dados.validsValue.map(discipline => <div><p>{discipline.cod} {discipline.name}</p></div>)
           :
