@@ -27,7 +27,7 @@ export default function Register() {
         };
 
         try {
-            const response = api.post('users', data);
+            api.post('users', data);
             alert(`Seu ID de acesso foi enviado para seu email.`);
 
             history.push('/');

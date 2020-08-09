@@ -5,6 +5,7 @@
     padding: 0;
     outline: 0;
     box-sizing: border-box;
+    font-family: 'Poppins';
 }
 
 body {
@@ -27,7 +28,7 @@ form input, select {
     margin-bottom: 6px;
     color: #333;
     border: 1px solid #dcdce6;
-    border-radius: 8px;
+    border-radius: 18px;
     padding: 0 24px;
 }
 
@@ -48,7 +49,7 @@ form textarea {
     height: 60px;
     background: #e02041;
     border: 0;
-    border-radius:  8px;
+    border-radius:  18px;
     color: #FFF;
     font-weight: 700;
     margin-top: 16px;
