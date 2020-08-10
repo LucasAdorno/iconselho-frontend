@@ -1,6 +1,6 @@
 .logon-container {
     width: 90%;
-    height: 100vh;
+    height: 90vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -30,10 +30,10 @@ form {
 }
 
 form input, form #login-button, #about-button {
-    font: 500 1rem 'Poppins';
+    font: 600 1rem 'Poppins';
 }
 
-form input:focus {
+form input:focus, select:focus {
     border: 1px solid #ee3333;
 }
 
