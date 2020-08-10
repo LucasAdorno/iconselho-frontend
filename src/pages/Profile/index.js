@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import { FiPower } from 'react-icons/fi';
 
@@ -15,7 +15,9 @@ export default function Profile() {
   const userName = localStorage.getItem('userName');
   const [cpf, setCpf] = useState('');
   const [password, setPassword] = useState('');
-  const [dados, setDados] = useState('')
+  const [dados, setDados] = useState('');
+  const formRef = useRef();
+  const buttonRef = useRef();
 
   useEffect(() => {
     api.get('profile', {
@@ -34,11 +36,13 @@ export default function Profile() {
       password,
       userId
     };
-
+    buttonRef.current.innerText= '.  .  .';
+    buttonRef.current.setAttribute('disabled', 'true');
     await api.post('profile', data).then((res) => {
       setDados(res.data);
+      formRef.current.innerHTML = ' '
     }).catch((err) => {
-      alert('deu ruim')
+      alert('Falha ao importar os dados!')
     });
 
   }
@@ -61,7 +65,7 @@ export default function Profile() {
       </header>
       <section className="form">
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} ref={formRef}>
           <h1>Insira suas credenciais do SIAC</h1>
 
           <input placeholder="CPF"
@@ -74,17 +78,9 @@ export default function Profile() {
             onChange={e => setPassword(e.target.value)}
           />
 
-          <button className="button" type="submit">Entrar</button>
+          <button className="button" type="submit" ref={buttonRef}>Entrar</button>
         </form>
       </section>
-      <section id='Obrigatórias'>
-        {dados.filterObg ?
-          dados.validsValue.map(discipline => <div><p>{discipline.cod} {discipline.name}</p></div>)
-          :
-          <></>
-        }
-      </section>
-
     </div>
   );
 }
