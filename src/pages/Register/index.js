@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-
 import { Link, useHistory } from 'react-router-dom';
-
 import { FiArrowLeft } from 'react-icons/fi';
+
+import iconLogo from '../../assets/icon-logo.png';
+import termsIcon from '../../assets/terms-icon.svg';
 
 import api from '../../services/api';
 
@@ -39,29 +40,21 @@ export default function Register() {
     return (
         <div className="register-container">
             <div className="content">
-                <section>
-
-                    <h1>Cadastro</h1>
-                    <p>Faça seu cadastro, entre na plataforma.</p>
-
-                    <Link className="back-link" to="/">
-                        <FiArrowLeft size={16} color="#E02041"/>
-                        Já estou cadastrado
-                    </Link>
-
-                </section>
+                <div id="header-register">
+                    <img src={iconLogo} alt="logo icon-lab " />
+                </div>
                 <form onSubmit={handleRegister}>
                     <input placeholder="Nome de usuário"
-                    value={name}
-                    onChange={e => setName(e.target.value)}
+                        value={name}
+                        onChange={e => setName(e.target.value)}
                     />
                     <input type="email" placeholder=" E-mail"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
                     />
                     <input type="password" placeholder="Senha"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
                     />
                     <select onChange={e => setBi(e.target.value)}>
                         <option value='art'> Artes</option>
@@ -70,8 +63,18 @@ export default function Register() {
                         <option value='sau'> Saúde</option>
                     </select>
 
-                    <button className="button" type="submit">Cadastrar</button>
+                    <button className="button" type="submit">Finalizar cadastro</button>
                 </form>
+                <section id='footer-register'>
+                    <Link className="back-link" to="/">
+                        <img src={termsIcon} alt='termos de serviço' />
+                         Termos de Serviço
+                    </Link>
+                    <Link className="back-link" to="/">
+                        <div><FiArrowLeft size={16} color="#E02041" /></div>
+                         Voltar para o Login
+                    </Link>
+                </section>
             </div>
         </div>
     );
