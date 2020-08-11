@@ -49,9 +49,9 @@ export default function Logon(){
     
                     <button id="login-button" className="button" type="submit">Entrar</button>
 
-                    <Link className="back-link" to="/register">
+                    <Link className="import-link" to="/register">
                         <FiLogIn size={16} color="#E02041"/>
-                        Não tenho Cadastro
+                        Não tenho cadastro
                     </Link>
                 </form>
             </section>

@@ -30,7 +30,7 @@ form {
 }
 
 form input, form #login-button, #about-button {
-    font: 600 1rem 'Poppins';
+    font: 500 1rem 'Poppins';
 }
 
 form input:focus, select:focus {
