@@ -1,86 +1,80 @@
 .profile-container {
-    width: 100%;
-    max-width: 1180px;
-    padding: 0 30px;
-    margin: 32px auto;
+  height: 96vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.profile-container header {
-    display: flex;
-    align-items: center;
+#profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem auto 0;
+  width: 80%;
 }
 
-.profile-container header span {
-    font-size: 20px;
-    margin-left: 24px;
+#profile-header span {
+  font-size:  1.2rem;
 }
 
-.profile-container header img {
-    height: 64px;
+#profile-header #logout{
+  cursor: pointer;
 }
 
-.profile-container header a {
-    width: 260px;
-    margin-left: auto;
-    margin-top: 0;
+.profile-container #text-credencials {
+  font-weight: 400;
+  align-self: flex-start;
+  width: 60%;
+  margin-left: 10%;
+  margin-bottom: -4rem;
 }
 
-.profile-container header button {
-    height: 60px;
-    width: 60px;
-    border-radius: 4px;
-    border: 1px solid #dcdce6;
-    background: transparent;
-    margin-left: 16px;
-    transition: border-color 0.2s;
+.footer-profile-infos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
 }
 
-.profile-container header button:hover {
-    border-color: #999;
+.footer-profile-infos h1 {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 3px solid #e02041;
+  color: #e02041;
 }
 
-.profile-container h1 {
-    margin-top: 80px;
-    margin-bottom: 24px;
+.footer-profile-infos #credencials-link {
+  margin: 0 0 0 10px;
+  font-size: 1rem;
 }
 
-.profile-container ul {
+@media (min-width: 1200px) {
+  .profile-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 24px;
-    list-style: none;
-}
+    grid-template-columns: 400px 1fr;
+    margin: 0 0 0 7rem;
+    align-content: center;
+    justify-items: center;
+  }
+  .profile-container #text-credencials {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    font-size: 1.7rem;
+  }
 
-.profile-container ul li {
-    background: #FFF;
-    padding: 24px;
-    border-radius: 8px;
-    position: relative;
-}
-
-.profile-container ul li button {
-    position: absolute;
-    right: 24px;
-    top: 24px;
-    border: 0;
-}
-
-.profile-container ul li button:hover {
-    opacity: 0.8;
-}
-
-.profile-container ul li strong {
-    display: block;
-    margin-bottom: 16px;
-    color: #41414d;
-}
-
-.profile-container ul li p + strong {
-    margin-top: 32px;
-}
-
-.profile-container ul li p {
-    color: #737380;
-    line-height: 21px;
-    font-size: 16px;
+  .profile-container #text-credencials::before {
+    content: "Sincronize os seus dados";
+    font: 600 2.4rem 'Poppins';
+    width: 24rem;
+    margin-bottom: 1.8rem;
+  }
+  .footer-profile-infos #credencials-link {
+    font-size: 1.2rem;
+  }
 }

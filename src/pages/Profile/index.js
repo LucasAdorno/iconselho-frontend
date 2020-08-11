@@ -36,38 +36,33 @@ export default function Profile() {
       password,
       userId
     };
-    buttonRef.current.innerText= '.  .  .';
+    buttonRef.current.innerText = '.  .  .';
     buttonRef.current.setAttribute('disabled', 'true');
     await api.post('profile', data).then((res) => {
       setDados(res.data);
       formRef.current.innerHTML = ' '
     }).catch((err) => {
       alert('Falha ao importar os dados!')
+      buttonRef.current.innerText = 'Entrar';
+      buttonRef.current.setAttribute('disabled', 'false');
     });
-
   }
 
   function handleLogout() {
     localStorage.clear();
-
     history.push('/');
   }
 
   return (
-    <div className="profile-container">
-      <header>
-
+  <>
+    <header id='profile-header'>
         <span>Bem vindo(a), {userName}</span>
-
-        <button onClick={handleLogout} type="button">
-          <FiPower size={18} color="#E02041" />
-        </button>
+        <FiPower id="logout" onClick={handleLogout}  size={22} color="#E02041" />
       </header>
-      <section className="form">
-
-        <form onSubmit={handleSubmit} ref={formRef}>
-          <h1>Insira suas credenciais do SIAC</h1>
-
+    <div className="profile-container">
+      <h1 id="text-credencials">Por favor, insira as suas credenciais do SIAC</h1>
+      <section className="form" ref={formRef}>
+        <form onSubmit={handleSubmit}>
           <input placeholder="CPF"
             value={cpf}
             onChange={e => setCpf(e.target.value)}
@@ -78,9 +73,25 @@ export default function Profile() {
             onChange={e => setPassword(e.target.value)}
           />
 
-          <button className="button" type="submit" ref={buttonRef}>Entrar</button>
+          <button className="button" type="submit" ref={buttonRef}>Acessar</button>
         </form>
+        <div className="footer-profile-infos">
+          <h1>i</h1>
+          <a id="credencials-link" className="import-link">Por que pedimos as suas credenciais?</a>
+        </div>
       </section>
+      {dados.filterObg ? dados.filterObg.map(i =>
+        <p>{i.cod}</p>
+      ) : <></>}
+      {dados.filterObg ? dados.filterCientific.map(i =>
+        <p>{i.cod}</p>
+      ) : <></>}
+      {dados.filterObg ? dados.filterHumanity.map(i =>
+        <p>{i.cod}</p>
+      ) : <></>}
+      {dados.filterObg ? dados.filterArts.map(i =>
+        <p>{i.cod}</p>
+      ) : <></>}
     </div>
-  );
+  </>);
 }
