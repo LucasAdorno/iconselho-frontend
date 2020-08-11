@@ -43,7 +43,7 @@ export default function Profile() {
     }).catch((err) => {
       alert('Falha ao importar os dados!')
       buttonRef.current.innerText = 'Entrar';
-      buttonRef.current.setAttribute('disabled', 'false');
+      buttonRef.current.removeAttribute('disabled');
     });
   }
 
@@ -85,11 +85,26 @@ export default function Profile() {
       {dados.filterObg ?
        <div>
         <ProfileCard dados={{...dados}} />
-        <CategoryCard bg={'#E38627'} title="Obrigatórias" hours={dados.chEspecific[3]} percent={dados.percentObg} disciplines={dados.filterObg} />
-        <CategoryCard bg={'#C13C37'} title="Artisticas" hours={dados.chEspecific[0]} percent={dados.percentArts} disciplines={dados.filterArts} />
-        <CategoryCard bg={'#33e3ee'} title="Cientifícas" hours={dados.chEspecific[1]} percent={dados.percentCientific} disciplines={dados.filterCientific} />
-        <CategoryCard bg={'#6A2135'} title="Humanisticas" hours={dados.chEspecific[2]} percent={dados.percentHumanity} disciplines={dados.filterHumanity} />
-        <CategoryCard bg={'#33ee66'} title="Livres" hours={dados.chEspecific[4]} percent={dados.percentFree} disciplines={dados.freeComponents} />
+        <CategoryCard 
+        text="obrigatórias da sua grade"
+        bg={'#E38627'} 
+        title="Obrigatórias" hours={dados.chEspecific[3]} percent={dados.percentObg} disciplines={dados.filterObg} />
+        <CategoryCard 
+        text={"com o código: DAN, EBA, MUS, LET, TEA ou que sejam "+dados.relativeNat[0]}
+        bg={'#C13C37'} 
+        title="Artisticas" hours={dados.chEspecific[0]} percent={dados.percentArts} disciplines={dados.filterArts} />
+        <CategoryCard 
+        text={"com o código: ARQ, BIO, ENF, ENG, FAR, FIS, FOF GEO, ICS, MAT, MED, MEV, QUI ou que sejam "+dados.relativeNat[2]}
+        bg={'#33e3ee'} 
+        title="Cientifícas" hours={dados.chEspecific[1]} percent={dados.percentCientific} disciplines={dados.filterCientific} />
+        <CategoryCard 
+        text={"com o código: ADM, COM, DIR, ECO, EDC, FCC, FCH, ICI, IPS ou que sejam "+dados.relativeNat[1]}
+        bg={'#6A2135'} 
+        title="Humanisticas" hours={dados.chEspecific[2]} percent={dados.percentHumanity} disciplines={dados.filterHumanity} />
+        <CategoryCard 
+        text="de qualquer instituto da UFBA"
+        bg={'#33ee66'} 
+        title="Livres" hours={dados.chEspecific[4]} percent={dados.percentFree} disciplines={dados.freeComponents} />
         </div> : <></>
       }
     </>);

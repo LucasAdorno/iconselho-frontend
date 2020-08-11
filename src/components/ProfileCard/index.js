@@ -13,11 +13,11 @@ function ProfileCard(props) {
           <h1 className="types-components-percent">
             OB: {props.dados.percentObg}%</h1>
           <h1 className="types-components-percent">
-            OZ: {props.dados.percentArts}%</h1>
+            {props.dados.relativeNat[0]+': '+props.dados.percentArts}%</h1>
           <h1 className="types-components-percent">
-            OY: {props.dados.percentCientific}%</h1>
+          {props.dados.relativeNat[2]+': '+props.dados.percentCientific}%</h1>
           <h1 className="types-components-percent">
-            OH: {props.dados.percentHumanity}%</h1>
+          {props.dados.relativeNat[1]+': '+props.dados.percentHumanity}%</h1>
           <h1 className="types-components-percent">
             LV: {props.dados.percentFree}%</h1>
         </div>

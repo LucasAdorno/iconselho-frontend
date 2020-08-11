@@ -13,10 +13,11 @@ function CategoryCard(props) {
         <div id="progress-bar">
         </div>
       </div>
+      <h1 id="institucts">Você precisa pegar disciplinas {props.text}</h1>
       <div id="disciplines">
-        {props.disciplines.map(i => 
-          <h1 className="discipline-text" key={i.cod} >{i.cod+'-'+i.name+"  "+i.ch+"h"}</h1>
-          )
+        {props.disciplines.map(i =>
+          <h1 className="discipline-text" key={i.cod} >{i.cod + '-' + i.name + "  " + i.ch + "h"}</h1>
+        )
         }
       </div>
       <h1 id="request-hours">São necessárias {props.hours}h</h1>
