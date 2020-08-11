@@ -11,11 +11,11 @@
   align-items: center;
   justify-content: space-between;
   margin: 1rem auto 0;
-  width: 80%;
+  width: 90%;
 }
 
 #profile-header span {
-  font-size:  1.2rem;
+  font: 600 1.6rem 'Poppins';
 }
 
 #profile-header #logout{
