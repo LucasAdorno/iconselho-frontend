@@ -66,11 +66,11 @@ export default function Register() {
                     <button className="button" type="submit">Finalizar cadastro</button>
                 </form>
                 <section id='footer-register'>
-                    <Link className="back-link" to="/">
+                    <Link className="import-link" to="/">
                         <img src={termsIcon} alt='termos de serviço' />
                          Termos de Serviço
                     </Link>
-                    <Link className="back-link" to="/">
+                    <Link className="import-link" to="/">
                         <div><FiArrowLeft size={16} color="#E02041" /></div>
                          Voltar para o Login
                     </Link>
