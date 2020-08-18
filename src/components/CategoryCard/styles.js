@@ -51,7 +51,8 @@ export const Container = styled.div`
 
   #institucts {
     font: 600 1rem 'Poppins';
-    padding: 0 1.2rem 1rem 1.2rem;
+    padding: 0.2rem 1.2rem 0 1.2rem;
+    margin-bottom: -0.3rem;
   }
 
   #disciplines {

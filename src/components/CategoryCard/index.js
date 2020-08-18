@@ -8,12 +8,12 @@ function CategoryCard(props) {
       <header id="card-header">
         <h1 id="text-card-header">Matérias {props.title}</h1>
       </header>
+      <h1 id="institucts">Disciplinas {props.text}</h1>
       <div id="back-progress-bar">
         <h1>{props.percent}%</h1>
         <div id="progress-bar">
         </div>
       </div>
-      <h1 id="institucts">Você precisa pegar disciplinas {props.text}</h1>
       <div id="disciplines">
         {props.disciplines.map(i =>
           <h1 className="discipline-text" key={i.cod} >{i.cod + '-' + i.name + "  " + i.ch + "h"}</h1>

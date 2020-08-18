@@ -27,14 +27,14 @@ export default function Register() {
             bi
         };
 
-        try {
-            api.post('users', data);
-            alert(`Seu ID de acesso foi enviado para seu email.`);
-
-            history.push('/');
-        } catch (err) {
-            alert('Erro no cadastro, tente novamente.');
-        }
+        api.post('users', data)
+            .then(() => {
+                alert(`Cadastro concluido!`);
+                history.push('/');
+            })
+            .catch(() => {
+                alert('Erro no cadastro, tente novamente.');
+            })
     }
 
     return (
@@ -44,15 +44,21 @@ export default function Register() {
                     <img src={iconLogo} alt="logo icon-lab " />
                 </div>
                 <form onSubmit={handleRegister}>
-                    <input placeholder="Nome de usuário"
+                    <input
+                        required
+                        placeholder="Nome de usuário"
                         value={name}
                         onChange={e => setName(e.target.value)}
                     />
-                    <input type="email" placeholder=" E-mail"
+                    <input
+                        required
+                        type="email" placeholder=" E-mail"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                     />
-                    <input type="password" placeholder="Senha"
+                    <input
+                        required
+                        type="password" placeholder="Senha"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
                     />
