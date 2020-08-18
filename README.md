@@ -5,3 +5,18 @@
 
 ## Em desenvolvimento!
 
+### Built with:
+- Axios
+- ReactJs
+- React-router-dom
+- React-minimal-pie-chart
+- Styled-components
+- A lot of coffee :)
+
+### Instructions
+- Open your terminal.
+- Insert `git clone https://github.com/LucasAdorno/iconselho-frontend.git`
+- Insert `cd iconselho-frontend`
+- if you don't have nodeJS on your device, install https://nodejs.org/en/download/
+- Insert the `npm i` to install all dependencies.
+- Insert `npm run start` to run.
