@@ -37,10 +37,11 @@ export default function Profile() {
     };
     buttonRef.current.innerText = '.  .  .';
     buttonRef.current.setAttribute('disabled', 'true');
-    await api.post('profile', data).then((res) => {
+
+    await api.post('profile', data).then( res => {
       setDados(res.data);
       formRef.current.innerHTML = '<div></div> '
-    }).catch((err) => {
+    }).catch( err => {
       alert('Falha ao importar os dados!')
       buttonRef.current.innerText = 'Entrar';
       buttonRef.current.removeAttribute('disabled');
