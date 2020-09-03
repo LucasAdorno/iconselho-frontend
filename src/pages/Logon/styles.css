@@ -33,6 +33,12 @@ form input, form #login-button, #about-button {
     font: 500 1rem 'Poppins';
 }
 
+form #recovery-pass {
+    text-decoration: none;
+    color: #3333cc;
+    margin-left: 6px;
+}
+
 form input:focus, select:focus {
     border: 1px solid #ee3333;
 }

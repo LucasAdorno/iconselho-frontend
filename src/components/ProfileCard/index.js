@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container } from './styles';
-import { PieChart } from 'react-minimal-pie-chart'
+import { Container, ChartBar } from './styles';
+// import { PieChart } from 'react-minimal-pie-chart'
 
 function ProfileCard(props) {
   return (
@@ -22,7 +22,7 @@ function ProfileCard(props) {
             LV: {props.dados.percentFree}%</h1>
         </div>
         <div id="chart">
-          <PieChart
+          {/* <PieChart
             viewBoxSize={[160, 160]}
             data={[
               { title: 'Obrigatorias', value: props.dados.obgCh, color: '#E38627' },
@@ -32,7 +32,12 @@ function ProfileCard(props) {
               { title: 'Livres', value: props.dados.freeCh, color: '#33ee66' },
               { title: 'Restante', value: (2040 - props.dados.totalCh), color: '#666' },
             ]}
-          />
+          /> */}
+          <ChartBar size={props.dados.percentObg} bgcolor='#E38627' />
+          <ChartBar size={props.dados.percentArts} bgcolor='#C13C37' />
+          <ChartBar size={props.dados.percentCientific} bgcolor='#33e3ee' />
+          <ChartBar size={props.dados.percentHumanity} bgcolor='#6A2135' />
+          <ChartBar size={props.dados.percentFree} bgcolor='#33ee66' />
         </div>
       </div>
       <div id="footer-profile-card">

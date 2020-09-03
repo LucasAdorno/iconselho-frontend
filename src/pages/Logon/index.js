@@ -9,19 +9,20 @@ import './styles.css';
 
 export default function Logon(){
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [info, setInfo] = useState('');
     const history = useHistory();
 
     async function handleLogin(e) {
         e.preventDefault();
 
         try {
-            const response = await api.post('sessions', { email, password });
+            const response = await api.post('sessions', { email, info });
 
             localStorage.setItem('email', email);
-            localStorage.setItem('userName', response.data.name);
-
-            history.push('/profile');
+            localStorage.setItem('userName', response.data.user.name);
+            localStorage.setItem('siac', response.data.user.siac);
+            localStorage.setItem('token', response.data.token);
+            response.data.user.check === 'true' ? history.push('/profile') : alert('Por favor, verifique sua caixa de email e confirme a sua conta');
         } catch (err) {
             alert('Falha no login, tente novamente.');
         }
@@ -47,10 +48,10 @@ export default function Logon(){
                     required
                     placeholder="Senha"
                     type='password'
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
+                    value={info}
+                    onChange={e => setInfo(e.target.value)}
                     />
-    
+                    <Link id='recovery-pass' to='/recovery'>Esqueci minha senha</Link>
                     <button id="login-button" className="button" type="submit">Entrar</button>
 
                     <Link className="import-link" to="/register">

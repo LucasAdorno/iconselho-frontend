@@ -20,7 +20,7 @@ function CategoryCard(props) {
         )
         }
       </div>
-      <h1 id="request-hours">São necessárias {props.hours}h</h1>
+      <h1 id="request-hours">São necessárias: {props.hours}h</h1>
     </Container>
   );
 }

@@ -12,7 +12,7 @@ import './styles.css';
 export default function Register() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [info, setInfo] = useState('');
     const [bi, setBi] = useState('art');
 
     const history = useHistory();
@@ -23,13 +23,13 @@ export default function Register() {
         const data = {
             name,
             email,
-            password,
+            info,
             bi
         };
 
         api.post('users', data)
             .then(() => {
-                alert(`Cadastro concluido!`);
+                alert(`Cadastro concluido! Verifique sua caixa de email para confirmar a conta.`);
                 history.push('/');
             })
             .catch(() => {
@@ -59,8 +59,8 @@ export default function Register() {
                     <input
                         required
                         type="password" placeholder="Senha"
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
+                        value={info}
+                        onChange={e => setInfo(e.target.value)}
                     />
                     <select onChange={e => setBi(e.target.value)}>
                         <option value='art'> Artes</option>

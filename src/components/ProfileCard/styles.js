@@ -15,7 +15,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 3rem;
+    height: 2rem;
     background: #111;
     color: #fafafa;
     border-radius: 8px 8px 0 0;
@@ -37,7 +37,10 @@ export const Container = styled.div`
     font: 500 1rem 'Poppins';
   }
   #profile-card-content #chart {
-    margin-right: -5rem;
+    width: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
   }
 
   #footer-profile-card{
@@ -49,4 +52,12 @@ export const Container = styled.div`
     font: 500 1rem 'Poppins';
     color: #333;
   }
+`;
+
+export const ChartBar = styled.div`
+
+  width: 20px;
+  height: ${props => props.size}px;
+  background: ${props => props.bgcolor};
+
 `;
